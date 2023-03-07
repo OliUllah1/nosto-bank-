@@ -11,10 +11,15 @@
 
 document.getElementById("btn-withdraw").addEventListener("click", function () {
   const newWithdrawAmount = getInputFieldValueById("withdraw-field");
-  const previousWithdrawTotal = getTextElementValueById("withdraw-total ");
+  if(newWithdrawAmount <=0){
+    alert('inter a positive number')
+    return;
+  }
+  console.log(newWithdrawAmount)
+  const previousWithdrawTotal = getTextElementValueById("withdraw-total");
   const newWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
-  setTextElementValueById(withdraw - total, newWithdrawTotal);
+  setTextElementValueById('withdraw-total', newWithdrawTotal);
   const previousBalanceTotal = getTextElementValueById("balance-total");
-  const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
+  const newBalanceTotal = parseInt( previousBalanceTotal) - parseInt(newWithdrawAmount);
   setTextElementValueById("balance-total", newBalanceTotal);
 });

@@ -6,20 +6,23 @@ document.getElementById("btn-deposit").addEventListener("click", function () {
     3. convert string value to a number
     */
   const newDepositAmount = getInputFieldValueById("deposit-field");
+  if(newDepositAmount <=0){
+    alert('inter a positive number')
+    return;
+  }
   /* 
     1. get previous deposit total by id
 
     */
-  const previousDepositTotal = getTextElementValueById("deposit-total");
+  const previousDepositTotal = document.getElementById("deposit-total").innerText;
 
   // calculate new deposit total
-  const newDepositTotal = previousDepositTotal + newDepositAmount;
-  console.log(newDepositTotal, previousDepositTotal, newDepositAmount);
+  const newDepositTotal = parseInt(previousDepositTotal )+ parseInt(newDepositAmount);
   // set deposit total value
   setTextElementValueById("deposit-total", newDepositTotal);
 
   // get previous balance by using the function
-  const previousBalanceTotal = getextElementValueById("balance-total");
-  const newBalanceTotal = previousBalanceTotal + newDepositAmount;
+  const previousBalanceTotal = document.getElementById("balance-total").innerText;
+  const newBalanceTotal = parseInt(previousBalanceTotal) + parseInt( newDepositAmount);
   setTextElementValueById("balance-total", newBalanceTotal);
-);
+});
